@@ -115,12 +115,6 @@ data "coder_parameter" "image" {
  #   error = "Image cannot be left blank!"
  # }
   mutable = true
- # option {
- #   name        = "sharkymark/envbuilder-starter-devcontainer"
- #   description = "An example repository for getting started with devcontainer.json and envbuilder."
- #   value       = "https://github.com/sharkymark/envbuilder-starter-devcontainer"
- #  # icon        = "https://avatars.githubusercontent.com/u/95932066?s=200&v=4"
- # }
   option {
     name        = "ubuntu"
     description = "Ubuntu"
@@ -335,7 +329,7 @@ resource "coder_app" "code-server" {
   slug         = "code-server"
   display_name = "code-server"
   icon         = "/icon/code.svg"
-  url          = "http://localhost:13337?folder=/home/coder"
+  url          = "http://localhost:13337?folder=/workspaces"
   subdomain    = false
   share        = "owner"
 
@@ -351,7 +345,7 @@ resource "coder_app" "vscode-web" {
   slug         = "vscode-web"
   display_name = "VS Code Web"
   icon         = "/icon/code.svg"
-  url          = "http://localhost:13338?folder=/home/coder"
+  url          = "http://localhost:13338?folder=/workspaces"
   subdomain    = true  # VS Code Web does currently does not work with a subpath https://github.com/microsoft/vscode/issues/192947
   share        = "owner"
 }
